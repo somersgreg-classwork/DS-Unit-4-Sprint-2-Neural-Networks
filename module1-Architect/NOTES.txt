@@ -1,0 +1,52 @@
+###### Mon Apr 11 15:13:04 EDT 2022
+> We are learning the foundational (1st) level to building a Neural Network.
+< Later steps are to architect and train NN's.
++ Perceptron - Consists of 1 node. We control the thinking pattern of perceptron via weights and thresholds.
++ Threshold is also called Bias. Input is multiplied by weights to acheive Weighted Sum.
++ Weighted Sum must surpass the threshold to trigger activation function.
+? Where do weights come from?
+? Weights are different for values at different points along a number line?
+? Do these weights form a regression line or curve?
+? Can we visulalize the weights over a progressive number line or series?
+? Is this all random?
++ The activation function evaluates whether adding the weights times the inputs (weighted sum) equals enough to trigger "true", else "false".
++ Step function is a simple activation function.
++ In this example we take a series of random numbers. Multiply by a series of random weights. Add these amounts.  Compare this total (<>) to a threshold amount we select. And we get true or false.
+? So all we're doing is increasing a set of numbers and summing the result to see if the sum is greater than some number we invent?  This seems linear.
+    & Yes the perceptron consists of a Linear Unit (sum symbol).
+
+? Whats missing here is "why" the weights. What does the set represent.
+? Why not increase with adding if all that matters is we're viewing the input as a function of our weight. Multipling just makes the effect more pronounced but thats all.
++ We get to select the initial set of weights and the threshold value.
++ n with longer second line is eta (learning rate). w_i (w subscript i) is initial weight value before adding delta wi. delta w_i is the weight update.
++ New video https://www.youtube.com/watch?v=tp2Ydg5zaqU&list=PLUZjIBGiCHFd9uMvnx-35JJmj1XwhNXtW
++ Perceptron prediction uses error rather than logistic regression (conditional, P(Y|X), y given x) or joint probability (Naive Bayes P(X,Y)) which are probability driven.
+$ w0 - bias term. The bias term is an adjustable, numerical term added to a perceptron's weighted sum of inputs and weights that can increase classification model accuracy.
++  a bias value (w0) allows you to shift the activation function to the left or right, which may be critical for successful learning.
++ y = mx+c (c is the y intercept) which is what w0 gives you, I think.
++ w0 It doesnt always pass through the origin so x0 is set to 1.
++ A simpler way to understand what the bias is: it is somehow similar to the constant b of a linear function
+    y = ax + b
+    It allows you to move the line up and down to fit the prediction with the data better.
+    Without b, the line always goes through the origin (0, 0) and you may get a poorer fit.
+A layer in a neural network without a bias is nothing more than the multiplication of an input vector with a matrix. (The output vector might be passed through a sigmoid function for normalisation and for use in multi-layered ANN afterwards, but that’s not important.)
+
+This means that you’re using a linear function and thus an input of all zeros will always be mapped to an output of all zeros. This might be a reasonable solution for some systems but in general it is too restrictive.
+
+Using a bias, you’re effectively adding another dimension to your input space, which always takes the value one, so you’re avoiding an input vector of all zeros. You don’t lose any generality by this because your trained weight matrix needs not be surjective, so it still can map to all values previously possible.
+
+2D ANN:
+
+For a ANN mapping two dimensions to one dimension, as in reproducing the AND or the OR (or XOR) functions, you can think of a neuronal network as doing the following:
+
+On the 2D plane mark all positions of input vectors. So, for boolean values, you’d want to mark (-1,-1), (1,1), (-1,1), (1,-1). What your ANN now does is drawing a straight line on the 2d plane, separating the positive output from the negative output values.
+
+Without bias, this straight line has to go through zero, whereas with bias, you’re free to put it anywhere. So, you’ll see that without bias you’re facing a problem with the AND function, since you can’t put both (1,-1) and (-1,1) to the negative side. (They are not allowed to be on the line.) The problem is equal for the OR function. With a bias, however, it’s easy to draw the line.
+
+Note that the XOR function in that situation can’t be solved even with bias.
+2.2. Perceptron Learning Rule
+As you know, each connection in a neural network has an associated weight, which changes in the course of learning. According to it, an example of supervised learning, the network starts its learning by assigning a random value to each weight.
+Calculate the output value on the basis of a set of records for which we can know the expected output value. This is the learning sample that indicates the entire definition. As a result, it is called a learning sample.
+The network then compares the calculated output value with the expected value. Next calculates an error function ∈, which can be the sum of squares of the errors occurring for each individual in the learning sample.
+> So the way I see it, we have train and test sets. We feed in train and apply a random weight/s. Then run this to predict the test data and notice the effect on the loss/error.
+    Then a change is made with a size equal to the learning rate followed by a retest with new weights.
