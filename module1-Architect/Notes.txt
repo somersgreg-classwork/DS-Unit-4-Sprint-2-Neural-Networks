@@ -1,0 +1,65 @@
+# NOTES
+
+
+###### Mon Apr 11 12:11:13 EDT 2022 > I added formating to bashrc prompt.  It looks great. From stack overflow. " [.venv] ~/github/DS-Unit-4-Sprint-2-Neural-Networks work2*$ "
+# > Added 'Insert Time Stamp' extension by Vlad Zamskoi
+# > I finished Unit 2 sprint Sat night.  Now going to try to redo all assignments.  Tomorrow will prep for 4.3.1 lecture and set up next local repo.
+# > Using Colab was the only way I could do sprint assessment because Fedora laptop couldnt get TF working.
+# > Currently running Ubuntu WSL2 on Win11.  Path is home/user/github/unit/
+# > Increased VScode explorer tree indent to 25px in settings.  No addon needed!
+
+###### Older notes.
+> I added F10 clears cell output to vscode settings.
+
+TF broke.  No reason.  Spent all night trying to fix.
+--ignore-installed flags might work after pip install tensorflow==2.4.0  <- CONFIRMED WORKS
+Make sure in env
+Dont know how to uninstall everything and start over.
+Hard to track versions.
+TF 2.8.0 takes longer to install than 2.4
+
+> I increased memory from 4098 (or whatever 4Gb is in binary)
+Files: Max Memory For Large Files MB
+Controls the memory available to VS Code after restart when trying to open large files. Same effect as specifying --max-memory=NEWSIZE on the command line.\
+8192
+
+### Look these up and watch them VERY IMPORTANT
+YouTubeYouTube | Khan Academy
+Calculus: Derivatives 1 | Taking derivatives | Differential Calculus | Khan Academy
+YouTubeYouTube | Khan Academy
+Multiplying a matrix by a matrix | Matrices | Precalculus | Khan Academy
+YouTubeYouTube | freeCodeCamp.org
+Python NumPy Tutorial for Beginners
+
+
+## Use ReLu. Its simple.  Linear _ + Linear / = _/ non-linear (neural)
+
+The first part of the Lecture we didnt go over a lot of.  We need to learn all this solid.
+
+R-Square is based on the errors.  This is called Loss/Cost function.
+
+Forward Propagation / Back Propagation. KNOW THESE.  Its very IMPORTANT.
+Know how to calculate Loss function in your head.  Its easy to do.
+Cross-entropy
+Again Loss function is very IMPORTANT to know well.
+
+Be SURE to go over saved links in each module!
+
+Removing .models makes this import work in WSL!
+from tensorflow.keras import Sequential
+
+input_dim is only in the first layer.  After that its without the term but just write the number.  They increase.
+
+Look into SVM if have time.  Watch video.
+
+callbacks = ([tensorboard_callbacks])
+
+PANDARALLEL
+from pandarallel import pandarallel
+pandarallel.initialize(nb_workers=8, progress_bar=True)
+# df.apply(func)
+# df.parallel_apply(func)
+# so that the progress bars will work
+from pandarallel import progress_bars
+# Might need this?
+progress_bars.is_notebook_lab = lambda : True
